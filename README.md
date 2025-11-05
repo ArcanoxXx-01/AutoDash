@@ -12,7 +12,7 @@
 ## Descripción general
 
 **AutoDash** es un sistema basado en inteligencia artificial capaz de **generar código funcional de dashboards en Streamlit** a partir de **descripciones en lenguaje natural**.  
-Además, integra automáticamente el código generado en proyectos existentes y permite la **previsualización inmediata** del resultado.
+Además, integra automáticamente el código generado en proyectos (nuevos o existentes) y permite la **previsualización inmediata** del resultado en entornos seguros.
 
 El objetivo de AutoDash es **'democratizar' el desarrollo de dashboards**, permitiendo que tanto usuarios sin experiencia en programación como desarrolladores avanzados puedan crear interfaces interactivas de visualización de datos de forma rápida y eficiente.
 
@@ -20,11 +20,11 @@ El objetivo de AutoDash es **'democratizar' el desarrollo de dashboards**, permi
 
 ## Características principales
 
-- **Entrada en lenguaje natural:** el usuario describe el dashboard deseado con texto libre.  
-- **Generación automática de código:** un modelo de lenguaje (LLM) genera código Streamlit funcional.  
-- **Integración automática:** el sistema inserta o actualiza archivos dentro de un proyecto Python existente.  
-- **Ejecución segura:** los dashboards se ejecutan en entornos controlados (sandbox).  
-- **Conectividad extendida mediante MCP:** el sistema puede acceder a bases de datos, servicios o archivos locales bajo supervisión.  
+- **Entrada en lenguaje natural:** el usuario describe el dashboard deseado con sus palabras.  
+- **Generación automática de código:** un modelo de lenguaje especialisado genera código funcional de Streamlit (Python).  
+- **Integración automática:** el sistema inserta o actualiza archivos dentro de un proyecto Python (nuevo o existente).  
+- **Ejecución segura:** los dashboards se ejecutan en entornos controlados (sandbox o docker).  
+- **Conectividad extendida mediante MCP:** el sistema puede acceder a bases de datos, servicios o archivos locales bajo consentimiento.  
 - **Previsualización instantánea:** permite ver el resultado del dashboard generado sin salir del entorno.  
 
 ---
@@ -32,29 +32,29 @@ El objetivo de AutoDash es **'democratizar' el desarrollo de dashboards**, permi
 ## 🏗️ Arquitectura general (Propensa a cambios)
 
 ```text
-┌──────────────────────────────┐
-│        User Prompt           │
-└──────────────┬───────────────┘
+      ┌───────────────┐
+      │  User Prompt  │
+      └────────┬──────┘
                │
                ▼
-      ┌─────────────────┐
-      │ LLM Generator   │ ← Modelos de lenguaje (GPT / local)
-      └─────────────────┘
+      ┌───────────────┐
+      │ LLM Generator │ ← Modelos de lenguaje (GPT / local)
+      └───────────────┘
                │
                ▼
-      ┌──────────────────────┐
-      │ Code Integration     │ ← Inserta y modifica archivos del proyecto
-      └──────────────────────┘
+      ┌───────────────────┐
+      │ Code Integration  │ ← Inserta y modifica archivos del proyecto
+      └───────────────────┘
                │
                ▼
-      ┌──────────────────────┐
-      │ Preview & Sandbox    │ ← Ejecuta el dashboard de forma segura
-      └──────────────────────┘
+      ┌────────────────────┐
+      │ Preview & Sandbox  │ ← Ejecuta el dashboard de forma segura
+      └────────────────────┘
                │
                ▼
-      ┌──────────────────────┐
-      │ MCP Connector        │ ← Interactúa con datos, APIs o archivos
-      └──────────────────────┘
+      ┌────────────────┐
+      │ MCP Connector  │ ← Interactúa con datos, APIs o archivos
+      └────────────────┘
 ```
 
 ---
@@ -106,7 +106,7 @@ muestre una tabla interactiva y un gráfico de barras con las ventas por categor
 | Framework de visualización | Streamlit |
 | Integración automática | Análisis de AST y manipulación de archivos |
 | Ejecución segura | Docker + entorno sandbox |
-| Extensiones / I/O | MCP (Multimodal Code Processing) |
+| Extensiones / I/O | MCP |
 | Lenguaje principal | Python 3.10+ |
 
 ---
@@ -152,5 +152,4 @@ Puedes abrir issues o enviar pull requests con mejoras o nuevas ideas para la ar
 ## 🌐 Contacto
 
 - **Autor:** Darío López Falcón  
-- **Email:** dariolf03@gmail.com 
-- **GitHub:** [github.com/ArcanoxXx-01](https://github.com/ArcanoxXx-01)
+- **Email:** dariolf03@gmail.com
