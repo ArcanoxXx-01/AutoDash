@@ -137,7 +137,7 @@ app.preview()
 
 ## 📚 Créditos y licencia
 
-Desarrollado por **Darío López Falcón** como parte de un proyecto de tesis en Ciencias de la Computación (2025).  
+Desarrollado por **Darío López Falcón** como parte del proyecto de tesis.  
 Licenciado bajo los términos de la [MIT License](./LICENSE).
 
 ---
